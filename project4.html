@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio Website - Project Detail</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="project-detail-page">
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.PNG" alt="Logo" class="logo-img">
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="project.html">Projects</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="project-detail-container fade-in">
+        <h1 class="project-detail-title">My Portfolio Website</h1>
+        <div class="project-main-layout">
+            <div class="project-left-column">
+                <div class="project-detail-meta">
+                    <div class="project-description">
+                        <h3>Description</h3>
+                        <p class="project-detail-description">
+                            This portfolio website features a modern, responsive design, custom animations, and interactive elements. Built with semantic HTML, CSS, and JavaScript, it demonstrates my ability to create visually appealing and user-friendly web experiences.
+                        </p>
+                    </div>
+                </div>
+                <div class="project-detail-tags">
+                    <span class="project-tag">HTML</span>
+                    <span class="project-tag">CSS</span>
+                    <span class="project-tag">JavaScript</span>
+                    <span class="project-tag">Responsive</span>
+                </div>
+                <div class="project-detail-actions">
+                    <a href="index.html" class="project-detail-button primary-button">View Live Demo</a>
+                    <a href="project.html" class="project-detail-button back-button">Back to Projects</a>
+                </div>
+            </div>
+            <div class="project-right-column">
+                <img src="images/project4.png" alt="Portfolio Website Screenshot" class="project-detail-image">
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Jiaxin. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const projectDetailContainer = document.querySelector('.project-detail-container');
+            if (projectDetailContainer) {
+                setTimeout(() => {
+                    projectDetailContainer.classList.add('visible');
+                }, 100);
+            }
+        });
+    </script>
+</body>
+</html> 

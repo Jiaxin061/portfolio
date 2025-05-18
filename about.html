@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me | Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <a href="index.html#home">
+                    <img src="images/logo.PNG" alt="Logo" class="logo-img">
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="project.html">Projects</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="about-section section fade-in">
+            <div class="container about-container">
+                <div class="about-profile">
+                    <img src="images/profile.png" alt="Profile Picture" class="about-profile-img">
+                </div>
+                <div class="about-info">
+                    <h2>About Me</h2>
+                    <p class="about-intro">
+                        Hi! I'm Jiaxin, a passionate Computer Science student specializing in Software Engineering at Universiti Teknologi Malaysia. I love building beautiful and functional web experiences, and I'm always eager to learn new technologies and take on creative challenges.
+                    </p>
+                    <h2>Skills</h2>
+                    <div class="about-skills-scroll">
+                        <div class="skill-item" id="skill-html"><img src="images/skill-logos/html5-01-svgrepo-com.svg" alt="HTML5"><span>HTML5</span></div>
+                        <div class="skill-item" id="skill-css"><img src="images/skill-logos/css-fill-svgrepo-com.svg" alt="CSS3"><span>CSS3</span></div>
+                        <div class="skill-item" id="skill-js"><img src="images/skill-logos/javascript-svgrepo-com.svg" alt="JavaScript"><span>JavaScript</span></div>
+                        <div class="skill-item" id="skill-figma"><img src="images/skill-logos/figma-logo-fill-svgrepo-com.svg" alt="Figma"><span>Figma</span></div>
+                        <div class="skill-item" id="skill-vue"><img src="images/skill-logos/logo-vue-svgrepo-com.svg" alt="Vue"><span>Vue</span></div>
+                        <div class="skill-item" id="skill-cpp"><img src="images/skill-logos/c-plus-plus-svgrepo-com.svg" alt="c++"><span>C++</span></div>
+                        <div class="skill-item" id="skill-java"><img src="images/skill-logos/java-svgrepo-com.svg" alt="Java"><span>Java</span></div>
+                        <div class="skill-item" id="skill-python"><img src="images/skill-logos/python-127-svgrepo-com.svg" alt="Python"><span>Python</span></div>
+                        <div class="skill-item" id="skill-mysql"><img src="images/skill-logos/mysql-svgrepo-com.svg" alt="MySQL"><span>MySQL</span></div>
+                    </div>
+                    <input type="range" min="0" max="8" value="0" class="skills-scroll-range" aria-label="Scroll skills">
+                    <h2>My Favorites</h2>
+                    <ul class="about-favorites">
+                        <li>🌌 Exploring new tech &amp; frameworks</li>
+                        <li>🎨 Designing interfaces in Figma</li>
+                        <li>📚 Reading sci-fi and tech blogs</li>
+                        <li>☕ Coffee &amp; late-night coding</li>
+                        <li>🎵 Lo-fi music while working</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Jiaxin. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+    
+    const skills = document.querySelectorAll('.about-skills-scroll .skill-item');
+    const skillsScroll = document.querySelector('.about-skills-scroll');
+    const range = document.querySelector('.skills-scroll-range');
+
+    function setActiveSkill(idx) {
+        skills.forEach((item, i) => {
+            item.classList.toggle('active', i === idx);
+        });
+        skills[idx].scrollIntoView({behavior: 'smooth', inline: 'center', block: 'nearest'});
+        if (range && Number(range.value) !== idx) {
+            range.value = idx;
+        }
+    }
+
+    if (range && skills.length) {
+        range.addEventListener('input', e => {
+            setActiveSkill(Number(range.value));
+        });
+        setActiveSkill(Number(range.value));
+        skills.forEach((item, i) => {
+            item.addEventListener('click', () => {
+                setActiveSkill(i);
+            });
+        });
+    }
+    </script>
+</body>
+</html>

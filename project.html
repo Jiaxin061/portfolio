@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Projects | Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <a href="index.html#home">
+                    <img src="images/logo.PNG" alt="Logo" class="logo-img">
+                </a>
+            </div>
+             <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="project.html" class="active">Projects</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="all-projects" class="section">
+            <div class="container">
+                <h2>All Projects</h2>
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <div class="project-item fade-in">
+                         <a href="project1.html" class="project-link" aria-label="View Project 1 Detail">
+                            <div class="project-image-card">
+                                <img src="images/project1.png" alt="Project 1 Image">
+                            </div>
+                            <div class="project-text-content">
+                                <h3 class="project-title">DblaFence - IT Monitoring</h3>
+                                <div class="project-tags">
+                                    <span class="project-tag">HTML</span>
+                                    <span class="project-tag">CSS</span>
+                                    <span class="project-tag">JavaScript</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Project 2 -->
+                    <div class="project-item fade-in">
+                        <a href="project2.html" class="project-link" aria-label="View Project 2 Detail">
+                            <div class="project-image-card">
+                                <img src="images/project2.png" alt="Project 2 Image">
+                            </div>
+                            <div class="project-text-content">
+                                <h3 class="project-title">ClubHub - UTM Event App</h3>
+                                <div class="project-tags">
+                                    <span class="project-tag">Figma</span>
+                                    <span class="project-tag">Prototype</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Project 3 -->
+                    <div class="project-item fade-in">
+                        <a href="project3.html" class="project-link" aria-label="View Project 3 Detail">
+                            <div class="project-image-card">
+                                <img src="images/project3.png" alt="Project 3 Image">
+                            </div>
+                            <div class="project-text-content">
+                                <h3 class="project-title">Smart Fridge App</h3>
+                                <div class="project-tags">
+                                    <span class="project-tag">Figma</span>
+                                    <span class="project-tag">IoT</span>
+                                    <span class="project-tag">Prototype</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Portfolio Project -->
+                     <div class="project-item fade-in">
+                        <a href="project4.html" class="project-link" aria-label="View Portfolio Project Detail">
+                            <div class="project-image-card">
+                                <img src="images/project4.png" alt="Portfolio Website Image">
+                            </div>
+                            <div class="project-text-content">
+                                <h3 class="project-title">My Portfolio (This Site)</h3>
+                                <div class="project-tags">
+                                    <span class="project-tag">HTML</span>
+                                    <span class="project-tag">CSS</span>
+                                    <span class="project-tag">JavaScript</span>
+                                     <span class="project-tag">Responsive</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Jiaxin. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    } else {
+                        entry.target.classList.remove('visible');
+                    }
+                });
+            }, observerOptions);
+
+            fadeElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 3 Title - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="project-detail-page">
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.PNG" alt="Logo" class="logo-img">
+                </a>
+            </div>
+             <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="project.html">Projects</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="project-detail-container fade-in">
+        <h1 class="project-detail-title">Smart Fridge App</h1>
+
+        <div class="project-main-layout"> 
+            <div class="project-left-column">
+                 <div class="project-detail-meta">
+            <div class="project-description">
+                <h3>Description</h3>
+                <p class="project-detail-description">
+                    The Smart Fridge App connects seamlessly to a smart fridge to detect and organize stored items by type and expiry date.
+                     It sends timely expiry reminders and recommends recipes based on available ingredients, helping users reduce food waste and plan meals efficiently.
+                </p>
+                    </div>
+                 </div>
+
+                <div class="project-detail-actions">
+                    <a href="https://www.figma.com/proto/I7Tj7ISqW2Lqpl7TnFAYsM/TecHCI?node-id=177-6397&p=f&t=AWLjDe7Is6mNQmVv-0&scaling=scale-down&content-scaling=fixed&page-id=177%3A6315&starting-point-node-id=177%3A6397" class="project-detail-button" target="_blank">View Live Demo</a>
+                    <a href="index.html#projects" class="project-detail-button back-button">Back to Projects</a>
+             </div>
+        </div>
+
+            <div class="project-right-column"> 
+                <img src="images/project3.png" alt="Project 3 Main Image" class="project-detail-image">
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Jiaxin. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const projectDetailContainer = document.querySelector('.project-detail-container');
+            if (projectDetailContainer) {
+                setTimeout(() => {
+                     projectDetailContainer.classList.add('visible');
+                }, 100);
+            }
+        });
+    </script>
+</body>
+</html>
