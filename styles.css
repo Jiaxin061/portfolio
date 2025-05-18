@@ -16,7 +16,7 @@ body {
     font-family: 'Roboto Mono', monospace;
     line-height: 1.6;
     color: var(--text-color);
-    background-image: url('images/background.jpg');
+    background-image: url('images/background.webp');
     background-size: cover; 
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -235,7 +235,7 @@ h2 {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('images/next.PNG'); 
+    background-image: url('images/next.webp'); 
     filter: brightness(0.8);
     background-size: 60px auto; 
     background-repeat: no-repeat;
@@ -816,6 +816,10 @@ h2 {
 
     p {
         font-size: 1.2rem;
+    }
+
+    h1 {
+        font-size: 3rem;
     }
 
     h2 {
