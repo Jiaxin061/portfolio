@@ -44,14 +44,19 @@
                         <div class="skill-item" id="skill-html"><img src="images/skill-logos/html5-01-svgrepo-com.svg" alt="HTML5 logo"><span>HTML5</span></div>
                         <div class="skill-item" id="skill-css"><img src="images/skill-logos/css-fill-svgrepo-com.svg" alt="CSS3 logo"><span>CSS3</span></div>
                         <div class="skill-item" id="skill-js"><img src="images/skill-logos/javascript-svgrepo-com.svg" alt="JavaScript logo"><span>JavaScript</span></div>
-                        <div class="skill-item" id="skill-figma"><img src="images/skill-logos/figma-logo-fill-svgrepo-com.svg" alt="Figma logo"><span>Figma</span></div>
+                        <div class="skill-item" id="skill-typescript"><img src="images/skill-logos/typescript.svg" alt="TypeScript logo"><span>TypeScript</span></div>
+                        <div class="skill-item" id="skill-react-native"><img src="images/skill-logos/react-native.svg" alt="React Native logo"><span>React Native</span></div>
                         <div class="skill-item" id="skill-vue"><img src="images/skill-logos/logo-vue-svgrepo-com.svg" alt="Vue logo"><span>Vue</span></div>
+                        <div class="skill-item" id="skill-figma"><img src="images/skill-logos/figma-logo-fill-svgrepo-com.svg" alt="Figma logo"><span>Figma</span></div>
                         <div class="skill-item" id="skill-cpp"><img src="images/skill-logos/c-plus-plus-svgrepo-com.svg" alt="C++ logo"><span>C++</span></div>
                         <div class="skill-item" id="skill-java"><img src="images/skill-logos/java-svgrepo-com.svg" alt="Java logo"><span>Java</span></div>
+                        <div class="skill-item" id="skill-springboot"><img src="images/skill-logos/springboot.svg" alt="Spring Boot logo"><span>Spring Boot</span></div>
                         <div class="skill-item" id="skill-python"><img src="images/skill-logos/python-127-svgrepo-com.svg" alt="Python logo"><span>Python</span></div>
                         <div class="skill-item" id="skill-mysql"><img src="images/skill-logos/mysql-svgrepo-com.svg" alt="MySQL logo"><span>MySQL</span></div>
+                        <div class="skill-item" id="skill-git"><img src="images/skill-logos/git.svg" alt="Git logo"><span>Git</span></div>
+                        <div class="skill-item" id="skill-github"><img src="images/skill-logos/github.svg" alt="GitHub logo"><span>GitHub</span></div>
                     </div>
-                    <input type="range" min="0" max="8" value="0" class="skills-scroll-range" aria-label="Scroll skills">
+                    <input type="range" min="0" max="13" value="0" class="skills-scroll-range" aria-label="Scroll skills">
                     <h2>My Favorites</h2>
                     <ul class="about-favorites">
                         <li>🌌 Exploring new tech &amp; frameworks</li>
@@ -70,29 +75,58 @@
     </footer>
     <script src="script.js"></script>
     <script>
-    const skills = document.querySelectorAll('.about-skills-scroll .skill-item');
-    const skillsScroll = document.querySelector('.about-skills-scroll');
+    const skillsContainer = document.querySelector('.about-skills-scroll');
     const range = document.querySelector('.skills-scroll-range');
-    function setActiveSkill(idx) {
-        skills.forEach((item, i) => {
-            item.classList.toggle('active', i === idx);
-        });
-        skills[idx].scrollIntoView({behavior: 'smooth', inline: 'center', block: 'nearest'});
-        if (range && Number(range.value) !== idx) {
-            range.value = idx;
+    
+    function updateSkillsList() {
+        const skills = document.querySelectorAll('.about-skills-scroll .skill-item');
+        
+        function setActiveSkill(idx) {
+            skills.forEach((item, i) => {
+                item.classList.toggle('active', i === idx);
+            });
+            skills[idx].scrollIntoView({behavior: 'smooth', inline: 'center', block: 'nearest'});
+            if (range && Number(range.value) !== idx) {
+                range.value = idx;
+            }
+        }
+        
+        if (range && skills.length) {
+            range.addEventListener('input', e => {
+                setActiveSkill(Number(range.value));
+            });
+            
+            // Mouse wheel scroll logic
+            let scrollAccumulator = 0;
+            const scrollThreshold = 150; // Higher value = slower scrolling
+            
+            skillsContainer.addEventListener('wheel', (e) => {
+                e.preventDefault();
+                scrollAccumulator += e.deltaY;
+                
+                if (Math.abs(scrollAccumulator) >= scrollThreshold) {
+                    const direction = scrollAccumulator > 0 ? 1 : -1;
+                    let nextIdx = Number(range.value) + direction;
+                    
+                    if (nextIdx >= 0 && nextIdx < skills.length) {
+                        setActiveSkill(nextIdx);
+                    }
+                    scrollAccumulator = 0;
+                }
+            }, { passive: false });
+
+            // Initialize
+            setActiveSkill(Number(range.value));
+            
+            skills.forEach((item, i) => {
+                item.addEventListener('click', () => {
+                    setActiveSkill(i);
+                });
+            });
         }
     }
-    if (range && skills.length) {
-        range.addEventListener('input', e => {
-            setActiveSkill(Number(range.value));
-        });
-        setActiveSkill(Number(range.value));
-        skills.forEach((item, i) => {
-            item.addEventListener('click', () => {
-                setActiveSkill(i);
-            });
-        });
-    }
+    
+    updateSkillsList();
     </script>
 </body>
 </html>
